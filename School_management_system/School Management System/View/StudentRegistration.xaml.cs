@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -44,7 +45,7 @@ namespace School_Management_System.View
                 }
             }
         }
-        private async void GetPhoto()
+        private async void GetPhotoFromPhotoGallary()
         {
             Windows.Storage.Pickers.FileOpenPicker openPicker = new Windows.Storage.Pickers.FileOpenPicker();
             openPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
@@ -74,12 +75,60 @@ namespace School_Management_System.View
                 bitmapImage.SetSource(fileStream);
                 //displayImage.Source = bitmapImage;
                 this.DataContext = file;
+                ImgOutput.Source = bitmapImage;
+            }
+        }
+        async private void CameraCapture()
+        {
+            // Remember to set permissions in the manifest!
+
+            // using Windows.Media.Capture;
+            // using Windows.Storage;
+            // using Windows.UI.Xaml.Media.Imaging;
+
+            CameraCaptureUI cameraUI = new CameraCaptureUI();
+            Size aspectRatio = new Size(16, 9);
+            cameraUI.PhotoSettings.AllowCropping = false;
+            cameraUI.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.MediumXga;
+
+            Windows.Storage.StorageFile capturedMedia =
+                await cameraUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+
+            if (capturedMedia != null)
+            {
+                using (var streamCamera = await capturedMedia.OpenAsync(FileAccessMode.Read))
+                {
+
+                    BitmapImage bitmapCamera = new BitmapImage();
+                    bitmapCamera.SetSource(streamCamera);
+                    // To display the image in a XAML image object, do this:
+                    // myImage.Source = bitmapCamera;
+
+                    // Convert the camera bitap to a WriteableBitmap object, 
+                    // which is often a more useful format.
+
+                    int width = bitmapCamera.PixelWidth;
+                    int height = bitmapCamera.PixelHeight;
+
+                    WriteableBitmap wBitmap = new WriteableBitmap(width, height);
+
+                    using (var stream = await capturedMedia.OpenAsync(FileAccessMode.Read))
+                    {
+                        wBitmap.SetSource(stream);
+                    }
+                    ImgOutput.Source = wBitmap;
+                }
             }
         }
 
         private void btnStartCum_Click(object sender, RoutedEventArgs e)
         {
-            GetPhoto();
+            CameraCapture(); 
+        }
+
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            GetPhotoFromPhotoGallary();
         }
 
     }

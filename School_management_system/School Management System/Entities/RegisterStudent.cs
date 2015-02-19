@@ -23,5 +23,7 @@ namespace School_Management_System.Entities
         public string Contact1 { get; set; }
         public string Contact2 { get; set; }
         public string DateRegistered { get; set; }
+        public string Religion { get; set; }
+        public string PreviousSchool { get; set; }
     }
 }

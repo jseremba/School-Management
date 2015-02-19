@@ -123,18 +123,17 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Entities\ClassInfo.cs" />
+    <Compile Include="Entities\Level.cs" />
     <Compile Include="Entities\RegisterStudent.cs" />
     <Compile Include="Entities\StudentImage.cs" />
+    <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Entities\Teacher.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serialization\Attendance.cs" />
-    <Compile Include="Serialization\ClassInfo.cs" />
-    <Compile Include="Serialization\LevelInfo.cs" />
-    <Compile Include="Serialization\ModuleSetting.cs" />
-    <Compile Include="Serialization\SubjectInfo.cs" />
-    <Compile Include="Serialization\TeacherInfo.cs" />
+    <Compile Include="Entities\Attendance.cs" />
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="View\StudentRegistration.xaml.cs">

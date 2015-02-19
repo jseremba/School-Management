@@ -11,7 +11,7 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace SapientTeacher.Common
+namespace School_Management_System.Common
 {
     /// <summary>
     /// SuspensionManager captures global session state to simplify process lifetime management

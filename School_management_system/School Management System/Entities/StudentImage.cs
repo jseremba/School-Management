@@ -12,6 +12,5 @@ namespace School_Management_System.Entities
         [PrimaryKey, AutoIncrement]
         public Int32 Auto_Sequence { get; set; }
         public byte[] MyImageLogo { get; set; }
-        public string StudentId { get; set; }
     }
 }

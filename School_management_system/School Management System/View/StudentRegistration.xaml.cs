@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace JSReporting_sys.View
+namespace School_Management_System.View
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -75,6 +75,11 @@ namespace JSReporting_sys.View
                 //displayImage.Source = bitmapImage;
                 this.DataContext = file;
             }
+        }
+
+        private void btnStartCum_Click(object sender, RoutedEventArgs e)
+        {
+            GetPhoto();
         }
 
     }

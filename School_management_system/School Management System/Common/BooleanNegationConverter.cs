@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace SapientTeacher.Common
+namespace School_Management_System.Common
 {
     /// <summary>
     /// Value converter that translates true to false and vice versa.

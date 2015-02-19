@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_Management_System.Serialization
+namespace School_Management_System.Entities
 {
-    public class LevelInfo
+    public class Level
     {
-        public String Name { get; set; }
     }
 }

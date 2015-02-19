@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using School_Management_System.Serialization;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace School_Management_System.Entities
         public string Middlename { get; set; }
         public string Lastname { get; set; }
         public string Sex { get; set; }
+        public StudentImage StudentImage { get; set; } //One to One
+        public Level LevelInfo { get; set; }
+        public List<Subject> SubjectInfo { get; set; } //One to many
+        public ClassInfo ClassInfo { get; set; }
         public string Dob { get; set; }
         public string Address { get; set; }
         public string FatherN { get; set; }

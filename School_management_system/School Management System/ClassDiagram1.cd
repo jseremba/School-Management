@@ -1,10 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="School_Management_System.Entities.RegisterStudent">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="School_Management_System.Entities.RegisterStudent" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAEABQACABCAoAAAAAAAAGAIAAAACAAAAAAACAAE=</HashCode>
+      <HashCode>BAIAAEAhQACAFCAoAAAAAAAAGAIAAAACAAAAAAACAAE=</HashCode>
       <FileName>Entities\RegisterStudent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StudentImage" />
+      <Property Name="SubjectInfo" />
+      <Property Name="LevelInfo" />
+      <Property Name="ClassInfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="School_Management_System.Entities.StudentImage" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entities\StudentImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="3.25" Width="1.75" />
+    <NestedTypes>
+      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="School_Management_System.Entities.Level" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="School_Management_System.Entities.ClassInfo" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClassInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

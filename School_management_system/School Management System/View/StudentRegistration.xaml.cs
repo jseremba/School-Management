@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Capture;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,5 +28,55 @@ namespace JSReporting_sys.View
         {
             this.InitializeComponent();
         }
+        private async void Camera_Clicked(object sender, TappedRoutedEventArgs e)
+        {
+            CameraCaptureUI camera = new CameraCaptureUI();
+            camera.PhotoSettings.CroppedAspectRatio = new Size(16, 9);
+            StorageFile photo = await camera.
+                                   CaptureFileAsync(CameraCaptureUIMode.Photo);
+
+            if (photo != null)
+            {
+                var targetFile = await ApplicationData.Current.LocalFolder.CreateFileAsync("Profile.jpg");
+                if (targetFile != null)
+                {
+                    await photo.MoveAndReplaceAsync(targetFile);
+                }
+            }
+        }
+        private async void GetPhoto()
+        {
+            Windows.Storage.Pickers.FileOpenPicker openPicker = new Windows.Storage.Pickers.FileOpenPicker();
+            openPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            openPicker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+
+            // Filter to include a sample subset of file types.
+            openPicker.FileTypeFilter.Clear();
+            openPicker.FileTypeFilter.Add(".bmp");
+            openPicker.FileTypeFilter.Add(".png");
+            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".jpg");
+
+            // Open the file picker.
+            Windows.Storage.StorageFile file = await openPicker.PickSingleFileAsync();
+
+            // file is null if user cancels the file picker.
+            if (file != null)
+            {
+                // Open a stream for the selected file.
+                Windows.Storage.Streams.IRandomAccessStream fileStream =
+                    await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+                // Set the image source to the selected bitmap.
+                Windows.UI.Xaml.Media.Imaging.BitmapImage bitmapImage =
+                    new Windows.UI.Xaml.Media.Imaging.BitmapImage();
+
+                bitmapImage.SetSource(fileStream);
+                //displayImage.Source = bitmapImage;
+                this.DataContext = file;
+            }
+        }
+
     }
+
 }

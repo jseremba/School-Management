@@ -136,6 +136,9 @@
     <Compile Include="Entities\Attendance.cs" />
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StudentRegistration.xaml.cs">
       <DependentUpon>StudentRegistration.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,17 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Images\AB-Logout.png.png" />
+    <Content Include="Images\Books%28150x150%29 - Copy.png" />
+    <Content Include="Images\Calendar%28150x150%29.png" />
+    <Content Include="Images\check.png" />
+    <Content Include="Images\Courses%28150x150%29.png" />
+    <Content Include="Images\passwrd.png" />
+    <Content Include="Images\settings.png" />
+    <Content Include="Images\sheet%28150x150%29 .png" />
+    <Content Include="Images\Shop%28150x150%29.png" />
+    <Content Include="Images\SignIn%28150x150%29.png" />
+    <Content Include="Images\usernam.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -166,6 +180,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StudentRegistration.xaml">
       <Generator>MSBuild:Compile</Generator>

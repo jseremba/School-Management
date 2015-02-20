@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Capture;
@@ -123,14 +125,32 @@ namespace School_Management_System.View
 
         private void btnStartCum_Click(object sender, RoutedEventArgs e)
         {
-            CameraCapture(); 
+            CameraCapture();
         }
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             GetPhotoFromPhotoGallary();
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            GenerateCoupon();
+        }
 
+        // Generate Auto number
+        public void GenerateCoupon()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+            txtOutput.Text = finalString;
+        }
     }
-
 }
